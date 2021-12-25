@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/hive/by-people")
@@ -20,8 +22,15 @@ public class ByPeopleController {
     @RequestMapping("/director")
     AjaxJson getByDirector(@RequestParam("name") String name){
         try{
+            Long startTime=System.currentTimeMillis();
             List<MovieDirectorSimple> ans=byPeopleService.getFilmsByDirector(name);
-            return AjaxJson.getSuccessData(ans);
+            Long endTime=System.currentTimeMillis();
+
+            Map<String,Object> res=new HashMap<String,Object>();
+            res.put("results",ans);
+            res.put("time",endTime-startTime);
+
+            return AjaxJson.getSuccessData(res);
         }catch(Exception e){
             return AjaxJson.getError(e.toString());
         }
@@ -30,8 +39,14 @@ public class ByPeopleController {
     @RequestMapping("/actor")
     AjaxJson getByActor(@RequestParam("name") String name){
         try{
+            Long startTime=System.currentTimeMillis();
             List<MovieActorSimple> ans=byPeopleService.getFilmsByActor(name);
-            return AjaxJson.getSuccessData(ans);
+            Long endTime=System.currentTimeMillis();
+
+            Map<String,Object> res=new HashMap<String,Object>();
+            res.put("results",ans);
+            res.put("time",endTime-startTime);
+            return AjaxJson.getSuccessData(res);
         }catch(Exception e){
             return AjaxJson.getError(e.toString());
         }
