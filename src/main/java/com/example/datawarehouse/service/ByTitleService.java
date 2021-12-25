@@ -1,6 +1,6 @@
 package com.example.datawarehouse.service;
 
-import com.example.datawarehouse.DTO.MovieCommon;
+import com.example.datawarehouse.dto.MovieCommon;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.example.datawarehouse.service;
 
-import com.example.datawarehouse.DTO.MovieActorSimple;
-import com.example.datawarehouse.DTO.MovieDirectorSimple;
+import com.example.datawarehouse.dto.MovieActorSimple;
+import com.example.datawarehouse.dto.MovieDirectorSimple;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.datawarehouse.DTO;
+package com.example.datawarehouse.dto;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class MovieCommon {
     private List<String> asins; //所有asins
 
 
-    public String title() {
+    public String getTitle() {
         return title;
     }
 

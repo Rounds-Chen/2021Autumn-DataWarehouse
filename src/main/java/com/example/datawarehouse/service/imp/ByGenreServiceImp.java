@@ -1,6 +1,6 @@
 package com.example.datawarehouse.service.imp;
 
-import com.example.datawarehouse.DTO.MovieCommon;
+import com.example.datawarehouse.dto.MovieCommon;
 import com.example.datawarehouse.dao.MovieCommonMapper;
 import com.example.datawarehouse.service.ByGenreService;
 import org.springframework.beans.factory.annotation.Autowired;

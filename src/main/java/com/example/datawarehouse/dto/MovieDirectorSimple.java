@@ -1,4 +1,4 @@
-package com.example.datawarehouse.DTO;
+package com.example.datawarehouse.dto;
 
 import java.util.List;
 

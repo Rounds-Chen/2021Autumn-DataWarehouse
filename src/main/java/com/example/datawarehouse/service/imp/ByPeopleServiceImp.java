@@ -1,8 +1,9 @@
 package com.example.datawarehouse.service.imp;
 
-import com.example.datawarehouse.DTO.MovieActorSimple;
-import com.example.datawarehouse.DTO.MovieDirectorSimple;
-import com.example.datawarehouse.dao.MovieCommonMapper;
+import com.example.datawarehouse.dto.MovieActorSimple;
+import com.example.datawarehouse.dto.MovieDirectorSimple;
+import com.example.datawarehouse.dao.MovieActorSimpleMapper;
+import com.example.datawarehouse.dao.MovieDirectorSimpleMapper;
 import com.example.datawarehouse.service.ByPeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,7 +32,7 @@ public class ByPeopleServiceImp implements ByPeopleService {
             }
         };
 
-        MovieCommonMapper rowMapper=new MovieCommonMapper();
+        MovieDirectorSimpleMapper rowMapper=new MovieDirectorSimpleMapper();
         return jdbcTemplate.query(sql, params,rowMapper);
     }
 
@@ -47,7 +48,7 @@ public class ByPeopleServiceImp implements ByPeopleService {
             }
         };
 
-        MovieCommonMapper rowMapper=new MovieCommonMapper();
+        MovieActorSimpleMapper rowMapper=new MovieActorSimpleMapper();
         return jdbcTemplate.query(sql, params,rowMapper);
     }
 }

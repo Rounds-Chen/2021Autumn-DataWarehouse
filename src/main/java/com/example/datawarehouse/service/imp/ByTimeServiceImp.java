@@ -1,21 +1,17 @@
 package com.example.datawarehouse.service.imp;
 
-import com.example.datawarehouse.DTO.MovieCommon;
+import com.example.datawarehouse.dto.MovieCommon;
 import com.example.datawarehouse.dao.MovieCommonMapper;
 import com.example.datawarehouse.service.ByTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 @Service

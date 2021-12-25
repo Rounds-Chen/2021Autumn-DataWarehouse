@@ -1,6 +1,6 @@
 package com.example.datawarehouse.service.imp;
 
-import com.example.datawarehouse.DTO.MovieCommon;
+import com.example.datawarehouse.dto.MovieCommon;
 import com.example.datawarehouse.dao.MovieCommonMapper;
 import com.example.datawarehouse.service.ByTitleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Service;
 
-import javax.websocket.server.ServerEndpoint;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;

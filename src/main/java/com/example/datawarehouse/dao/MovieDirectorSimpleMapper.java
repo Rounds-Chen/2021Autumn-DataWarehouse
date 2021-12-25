@@ -1,6 +1,6 @@
 package com.example.datawarehouse.dao;
 
-import com.example.datawarehouse.DTO.MovieDirectorSimple;
+import com.example.datawarehouse.dto.MovieDirectorSimple;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
