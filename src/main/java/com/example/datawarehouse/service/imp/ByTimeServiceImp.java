@@ -66,4 +66,38 @@ public class ByTimeServiceImp implements ByTimeService {
         return jdbcTemplate.query(sql, params,rowMapper);
 
     }
+
+    @Override
+    public List<MovieCommon> getFilmsByYearMonth(int year, int month) {
+        String sql="select title,release_date,rating,producer,language,genre,format_num,asins from " +
+                "ans_film_time where year=? and month=?";
+
+        PreparedStatementSetter params=new PreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement ps) throws SQLException {
+                ps.setInt(1,year);
+                ps.setInt(2,month);
+            }
+        };
+
+        MovieCommonMapper rowMapper=new MovieCommonMapper();
+        return jdbcTemplate.query(sql, params,rowMapper);
+    }
+
+    @Override
+    public List<MovieCommon> getFilmsByYearQuarter(int year, int quarter) {
+        String sql="select title,release_date,rating,producer,language,genre,format_num,asins from " +
+                "ans_film_time where year=? and quarter=?";
+
+        PreparedStatementSetter params=new PreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement ps) throws SQLException {
+                ps.setInt(1,year);
+                ps.setInt(2,quarter);
+            }
+        };
+
+        MovieCommonMapper rowMapper=new MovieCommonMapper();
+        return jdbcTemplate.query(sql, params,rowMapper);
+    }
 }

@@ -71,5 +71,41 @@ public class ByTimeController {
         }
     }
 
+    @RequestMapping("/year-quarter")
+    AjaxJson getByYearQuarter(@RequestParam("year") int year,@RequestParam("quarter") int quarter){
+        try{
+            Long startTime=System.currentTimeMillis();
+            List<MovieCommon> ans=byTimeService.getFilmsByYearQuarter(year,quarter);
+            Long endTime=System.currentTimeMillis();
+
+            Map<String,Object> res=new HashMap<>();
+            res.put("results",ans);
+            res.put("time",endTime-startTime);
+
+            return AjaxJson.getSuccessData(res);
+        }catch(Exception e){
+            return AjaxJson.getError(e.toString());
+        }
+    }
+
+
+    @RequestMapping("/year-month")
+    AjaxJson getByYearMonth(@RequestParam("year") int year,@RequestParam("month") int month){
+        try{
+            Long startTime=System.currentTimeMillis();
+            List<MovieCommon> ans=byTimeService.getFilmsByYearMonth(year,month);
+            Long endTime=System.currentTimeMillis();
+
+            Map<String,Object> res=new HashMap<>();
+            res.put("results",ans);
+            res.put("time",endTime-startTime);
+
+            return AjaxJson.getSuccessData(res);
+        }catch(Exception e){
+            return AjaxJson.getError(e.toString());
+        }
+    }
+
+
 
 }
