@@ -100,4 +100,35 @@ public class ByTimeServiceImp implements ByTimeService {
         MovieCommonMapper rowMapper=new MovieCommonMapper();
         return jdbcTemplate.query(sql, params,rowMapper);
     }
+
+    @Override
+    public List<MovieCommon> getFilmsByYearRating(int year) {
+        String sql="select title,release_date,rating,producer,language,genre,format_num,asins from " +
+                "ans_film_time where year=? and rating=1";
+        PreparedStatementSetter params=new PreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement ps) throws SQLException {
+                ps.setInt(1,year);
+            }
+        };
+
+        MovieCommonMapper rowMapper=new MovieCommonMapper();
+        return jdbcTemplate.query(sql, params,rowMapper);
+    }
+
+    @Override
+    public List<MovieCommon> getFilmsByYearGenreRating(int year,String genre) {
+        String sql="select title,release_date,rating,producer,language,genre,format_num,asins from " +
+                "ans_film_time where year=? and rating=1 and genre=?";
+        PreparedStatementSetter params=new PreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement ps) throws SQLException {
+                ps.setInt(1,year);
+                ps.setString(2,genre);
+            }
+        };
+
+        MovieCommonMapper rowMapper=new MovieCommonMapper();
+        return jdbcTemplate.query(sql, params,rowMapper);
+    }
 }

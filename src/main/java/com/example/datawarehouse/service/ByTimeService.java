@@ -12,4 +12,8 @@ public interface ByTimeService {
 
     List<MovieCommon> getFilmsByYearMonth(int year,int month);
     List<MovieCommon> getFilmsByYearQuarter(int year,int quarter);
+
+    List<MovieCommon> getFilmsByYearRating(int year);
+
+    List<MovieCommon> getFilmsByYearGenreRating(int year,String genre);
 }

@@ -106,6 +106,39 @@ public class ByTimeController {
         }
     }
 
+    @RequestMapping("/year-rating")
+    AjaxJson getByYearRating(@RequestParam("year") int year){
+        try{
+            Long startTime=System.currentTimeMillis();
+            List<MovieCommon> ans=byTimeService.getFilmsByYearRating(year);
+            Long endTime=System.currentTimeMillis();
+
+            Map<String,Object> res=new HashMap<>();
+            res.put("results",ans);
+            res.put("time",endTime-startTime);
+
+            return AjaxJson.getSuccessData(res);
+        }catch(Exception e){
+            return AjaxJson.getError(e.toString());
+        }
+    }
+
+    @RequestMapping("/year-rating-genre")
+    AjaxJson getByYearRating(@RequestParam("year") int year,@RequestParam("genre") String genre){
+        try{
+            Long startTime=System.currentTimeMillis();
+            List<MovieCommon> ans=byTimeService.getFilmsByYearGenreRating(year,genre);
+            Long endTime=System.currentTimeMillis();
+
+            Map<String,Object> res=new HashMap<>();
+            res.put("results",ans);
+            res.put("time",endTime-startTime);
+
+            return AjaxJson.getSuccessData(res);
+        }catch(Exception e){
+            return AjaxJson.getError(e.toString());
+        }
+    }
 
 
 }
