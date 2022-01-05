@@ -1,9 +1,9 @@
 hive:
-  url: jdbc:hive2://100.64.198.249:10001/dw
+  url:
   driver-class-name: org.apache.hive.jdbc.HiveDriver
   type: com.alibaba.druid.pool.DruidDataSource
-  user: root
-  password: abc123456
+  user:
+  password:
 
   initialSize: 1
   minIdle: 3
